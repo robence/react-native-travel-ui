@@ -7,11 +7,11 @@ import { Colors } from '../../constants';
 export default function CustomHeaderButton(props) {
   return (
     <HeaderButton
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
       IconComponent={Ionicons}
       iconSize={23}
       color={Platform.OS === 'android' ? 'white' : Colors.primary}
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
     />
   );
 }
