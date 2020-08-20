@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
 import HeaderButton from './HeaderButton';
 
 export default function HamburgerMenu({ navigation }) {

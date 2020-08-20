@@ -1,12 +1,11 @@
-/* eslint-disable global-require */
 import 'react-native-gesture-handler';
 
 import React, { useState } from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
+
 import TravelNavigator from './src/navigation';
 
 const fetchFonts = () => {

@@ -3,8 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import Colors from '../constants/Colors';
 
+import Colors from '../constants/Colors';
 import { TripScreen } from '../screens/trip';
 import { HamburgerMenu } from '../components/UI';
 
