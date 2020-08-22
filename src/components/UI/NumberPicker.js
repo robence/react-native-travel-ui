@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   blockText: {
     color: Colors.primary,
     fontSize: Sizes.width / 15,
-    fontFamily: 'open-sans-bold',
+    fontFamily: 'Roboto-Bold',
+    fontWeight: 'bold',
   },
 });

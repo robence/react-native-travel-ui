@@ -13,11 +13,19 @@ import {
   NumberPicker,
   Label,
   PrimaryButton,
+  Dropdown,
 } from '../../components/UI';
+const countries = [{ title: 'Croatia' }, { title: 'Unites States' }];
+const currencies = [
+  { title: 'Croatian kuna (HRK)' },
+  { title: 'Dollar (USD)' },
+];
 
 export default function TripScreen({ navigation }) {
   const [travellers, setTravellers] = useState(2);
   const [nights, setNights] = useState(3);
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
 
   const onCalculate = () => {};
 
@@ -27,15 +35,19 @@ export default function TripScreen({ navigation }) {
       behavior="padding"
       keyboardVerticalOffset={100}
     >
-      <ScrollView contentContainerStyle={styles.keyboard}>
-        <CardContainer>
+      <CardContainer>
+        <ScrollView contentContainerStyle={styles.keyboard}>
           <View style={{ flexDirection: 'row' }}>
             <HamburgerMenu navigation={navigation} />
           </View>
           <View style={{ marginVertical: 10 }}>
-            <Label>Destination country</Label>
+            <Dropdown
+              label="Destination country"
+              options={countries}
+              value={selectedCountry}
+              setValue={setSelectedCountry}
+            />
           </View>
-          <Text>Dropdown here</Text>
           <View style={styles.pickerContainer}>
             <NumberPicker
               label="Travellers"
@@ -45,16 +57,20 @@ export default function TripScreen({ navigation }) {
             <NumberPicker label="Nights" value={nights} setValue={setNights} />
           </View>
           <Label>Travel style</Label>
-          <View style={{ marginBottom: 30 }}>
+          <View style={{ marginBottom: 10 }}>
             <Text>Styles</Text>
           </View>
-          <View style={{ paddingVertical: 20 }}>
-            <Label>Preferred country</Label>
-            <Text />
+          <View style={{ marginBottom: 20 }}>
+            <Dropdown
+              label="Preferred currency"
+              options={currencies}
+              value={selectedCurrency}
+              setValue={setSelectedCurrency}
+            />
           </View>
           <PrimaryButton title="Calculate" onPress={onCalculate} />
-        </CardContainer>
-      </ScrollView>
+        </ScrollView>
+      </CardContainer>
     </KeyboardAvoidingView>
   );
 }
