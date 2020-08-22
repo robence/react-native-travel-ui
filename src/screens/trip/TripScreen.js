@@ -1,84 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
   StyleSheet,
   ScrollView,
   KeyboardAvoidingView,
-  TouchableOpacity,
 } from 'react-native';
 
-import { Container, HamburgerMenu } from '../../components/UI';
-import { Colors } from '../../constants';
+import {
+  CardContainer,
+  HamburgerMenu,
+  NumberPicker,
+  Label,
+  PrimaryButton,
+} from '../../components/UI';
 
 export default function TripScreen({ navigation }) {
+  const [travellers, setTravellers] = useState(2);
+  const [nights, setNights] = useState(3);
+
+  const onCalculate = () => {};
+
   return (
     <KeyboardAvoidingView
-      style={styles.flex}
+      style={styles.keyboard}
       behavior="padding"
       keyboardVerticalOffset={100}
     >
-      <ScrollView contentContainerStyle={styles.flex}>
-        <Container>
+      <ScrollView contentContainerStyle={styles.keyboard}>
+        <CardContainer>
           <View style={{ flexDirection: 'row' }}>
             <HamburgerMenu navigation={navigation} />
           </View>
-          <View style={{ marginVertical: 30 }}>
-            <Text>Destination country</Text>
+          <View style={{ marginVertical: 10 }}>
+            <Label>Destination country</Label>
           </View>
           <Text>Dropdown here</Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              width: '100%',
-              paddingVertical: 30,
-            }}
-          >
-            <View style={{ width: '50%' }}>
-              <Text>Travellers</Text>
-            </View>
-            <View style={{ width: '50%' }}>
-              <Text>Nights</Text>
-            </View>
+          <View style={styles.pickerContainer}>
+            <NumberPicker
+              label="Travellers"
+              value={travellers}
+              setValue={setTravellers}
+            />
+            <NumberPicker label="Nights" value={nights} setValue={setNights} />
           </View>
-          <Text>Travel style</Text>
-          <View style={{ marginBottom: 60 }}>
+          <Label>Travel style</Label>
+          <View style={{ marginBottom: 30 }}>
             <Text>Styles</Text>
           </View>
-          <View style={{ paddingVertical: 30 }}>
-            <Text>Preferred country</Text>
+          <View style={{ paddingVertical: 20 }}>
+            <Label>Preferred country</Label>
+            <Text />
           </View>
-          <View
-            style={{
-              width: '100%',
-              height: 50,
-              backgroundColor: Colors.primary,
-              borderRadius: 10,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <TouchableOpacity>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  color: 'white',
-                  fontSize: 18,
-                  textTransform: 'uppercase',
-                }}
-              >
-                Calculate
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </Container>
+          <PrimaryButton title="Calculate" onPress={onCalculate} />
+        </CardContainer>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
-  flex: {
+  keyboard: {
     flex: 1,
+  },
+  pickerContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    paddingVertical: 10,
+    justifyContent: 'space-between',
   },
 });

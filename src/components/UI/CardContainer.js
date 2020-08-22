@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export default function Container({ children, style }) {
+export default function CardContainer({ children, style }) {
   return <View style={{ ...styles.card, ...style }}>{children}</View>;
 }
 
