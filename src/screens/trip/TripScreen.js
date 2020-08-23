@@ -14,7 +14,11 @@ import {
   Label,
   PrimaryButton,
   Dropdown,
+  ColoredCard,
 } from '../../components/UI';
+import { Colors } from '../../constants';
+import { Budget, MidClass, Luxury } from '../../components/svg';
+
 const countries = [{ title: 'Croatia' }, { title: 'Unites States' }];
 const currencies = [
   { title: 'Croatian kuna (HRK)' },
@@ -54,9 +58,33 @@ export default function TripScreen({ navigation }) {
             />
             <NumberPicker label="Nights" value={nights} setValue={setNights} />
           </View>
-          <Label>Travel style</Label>
-          <View style={{ marginBottom: 10 }}>
-            <Text>Styles</Text>
+          <View style={{ marginVertical: 10 }}>
+            <Label>Travel style</Label>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}
+            >
+              <ColoredCard
+                label="Budget"
+                color={Colors.red}
+                backgroundColor={Colors.lightRed}
+                Icon={Budget}
+              />
+              <ColoredCard
+                label="Mid-class"
+                color={Colors.yellow}
+                backgroundColor={Colors.lightYellow}
+                Icon={MidClass}
+              />
+              <ColoredCard
+                label="Luxury"
+                color={Colors.primary}
+                backgroundColor={Colors.lightBlue}
+                Icon={Luxury}
+              />
+            </View>
           </View>
           <View style={{ marginBottom: 20 }}>
             <Dropdown
