@@ -26,6 +26,7 @@ export default function Dropdown({ label, options, value, setValue }) {
           setIsOpen(false);
         }}
       >
+        <Picker.Item label="Options" />
         {options.map((item) => (
           <Picker.Item key={item.title} label={item.title} value={item} />
         ))}
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 12,
+    borderRadius: 8,
     backgroundColor: Colors.lightBlue,
   },
   text: {

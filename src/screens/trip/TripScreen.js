@@ -7,9 +7,9 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 
+import { Header } from '../../components/header';
 import {
   CardContainer,
-  HamburgerMenu,
   NumberPicker,
   Label,
   PrimaryButton,
@@ -36,10 +36,8 @@ export default function TripScreen({ navigation }) {
       keyboardVerticalOffset={100}
     >
       <CardContainer>
-        <ScrollView contentContainerStyle={styles.keyboard}>
-          <View style={{ flexDirection: 'row' }}>
-            <HamburgerMenu navigation={navigation} />
-          </View>
+        <Header />
+        <ScrollView style={styles.container}>
           <View style={{ marginVertical: 10 }}>
             <Dropdown
               label="Destination country"
@@ -78,6 +76,10 @@ export default function TripScreen({ navigation }) {
 const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
+  },
+  container: {
+    flex: 1,
+    paddingHorizontal: 20,
   },
   pickerContainer: {
     flexDirection: 'row',

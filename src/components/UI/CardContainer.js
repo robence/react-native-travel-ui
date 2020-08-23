@@ -7,9 +7,12 @@ export default function CardContainer({ children, style }) {
 
 const styles = StyleSheet.create({
   card: {
-    padding: 20,
+    paddingTop: 20,
     paddingBottom: 10,
-    marginBottom: 15,
+    paddingBottom: 10,
+    marginBottom: 10,
+    marginHorizontal: 5,
+    marginTop: 5,
     margin: 1,
     flex: 1,
     shadowColor: 'black',

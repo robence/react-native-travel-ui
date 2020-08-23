@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     fontSize: 18,
+    fontFamily: 'Roboto-Bold',
+    fontWeight: 'bold',
     textTransform: 'uppercase',
   },
 });

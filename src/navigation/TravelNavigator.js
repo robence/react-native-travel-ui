@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import { TripScreen } from '../screens/trip';
-import { HamburgerMenu } from '../components/UI';
+import { HamburgerMenu } from '../components/header';
 
 const Stack = createStackNavigator();
 

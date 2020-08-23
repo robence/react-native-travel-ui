@@ -50,14 +50,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: Colors.lightBlue,
+    borderRadius: 8,
+    backgroundColor: Colors.lightBlue,
   },
   block: {
     padding: 10,
-    backgroundColor: Colors.lightBlue,
-    minWidth: Sizes.width / 9,
+    minWidth: Sizes.width / 8,
   },
   blockText: {
     color: Colors.primary,
