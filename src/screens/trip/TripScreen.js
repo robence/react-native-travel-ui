@@ -7,17 +7,14 @@ import {
 } from 'react-native';
 
 import { Header } from '../../components/header';
+import { ColoredCardList } from '../../components/Trip';
 import {
   CardContainer,
   NumberPicker,
-  Label,
   PrimaryButton,
   Dropdown,
-  ColoredCard,
   Spacer,
 } from '../../components/UI';
-import { Colors } from '../../constants';
-import { Budget, MidClass, Luxury } from '../../components/svg';
 
 const countries = [{ title: 'Croatia' }, { title: 'Unites States' }];
 const currencies = [
@@ -52,36 +49,22 @@ export default function TripScreen({ navigation }) {
               setValue={setSelectedCountry}
             />
           </Spacer>
-          <View style={styles.pickerContainer}>
-            <NumberPicker
-              label="Travellers"
-              value={travellers}
-              setValue={setTravellers}
-            />
-            <NumberPicker label="Nights" value={nights} setValue={setNights} />
-          </View>
           <Spacer>
-            <Label>Travel style</Label>
-            <View style={styles.inlineCards}>
-              <ColoredCard
-                label="Budget"
-                color={Colors.red}
-                backgroundColor={Colors.lightRed}
-                Icon={Budget}
+            <View style={styles.pickerContainer}>
+              <NumberPicker
+                label="Travellers"
+                value={travellers}
+                setValue={setTravellers}
               />
-              <ColoredCard
-                label="Mid-class"
-                color={Colors.yellow}
-                backgroundColor={Colors.lightYellow}
-                Icon={MidClass}
-              />
-              <ColoredCard
-                label="Luxury"
-                color={Colors.primary}
-                backgroundColor={Colors.lightBlue}
-                Icon={Luxury}
+              <NumberPicker
+                label="Nights"
+                value={nights}
+                setValue={setNights}
               />
             </View>
+          </Spacer>
+          <Spacer>
+            <ColoredCardList />
           </Spacer>
           <Spacer>
             <Dropdown
@@ -111,11 +94,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     flexDirection: 'row',
     width: '100%',
-    paddingVertical: 10,
-    justifyContent: 'space-between',
-  },
-  inlineCards: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
   },
 });
