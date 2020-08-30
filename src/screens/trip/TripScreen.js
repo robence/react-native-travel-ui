@@ -25,13 +25,15 @@ const currencies = [
   { title: 'Dollar (USD)' },
 ];
 
-export default function TripScreen() {
+export default function TripScreen({ navigation }) {
   const [travellers, setTravellers] = useState(2);
   const [nights, setNights] = useState(3);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
 
-  const onCalculate = () => {};
+  const onCalculate = () => {
+    navigation.navigate('TripOverviewScreen');
+  };
 
   return (
     <KeyboardAvoidingView

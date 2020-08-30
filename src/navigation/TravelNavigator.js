@@ -5,8 +5,7 @@ import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
-import { TripScreen } from '../screens/trip';
-import { HamburgerMenu } from '../components/header';
+import { TripScreen, TripOverviewScreen } from '../screens/trip';
 
 const Stack = createStackNavigator();
 
@@ -26,18 +25,12 @@ const defaultNavOptions = {
 function TripNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName=""
+      initialRouteName="TripOverviewScreen"
       screenOptions={defaultNavOptions}
       headerMode="none"
     >
-      <Stack.Screen
-        name="TripScreen"
-        component={TripScreen}
-        options={({ navigation }) => ({
-          headerTitle: '',
-          headerLeft: () => <HamburgerMenu navigation={navigation} />,
-        })}
-      />
+      <Stack.Screen name="TripScreen" component={TripScreen} />
+      <Stack.Screen name="TripOverviewScreen" component={TripOverviewScreen} />
     </Stack.Navigator>
   );
 }
