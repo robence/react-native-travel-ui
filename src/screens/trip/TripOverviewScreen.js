@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native';
 
 import { CardContainer } from '../../components/UI';
-import { Header } from '../../components/header';
+import { Header, HeaderTitle } from '../../components/header';
 import { Colors, Sizes } from '../../constants';
 
 export default function TripOverviewScreen() {
@@ -12,8 +12,9 @@ export default function TripOverviewScreen() {
       behavior="padding"
       keyboardVerticalOffset={100}
     >
-      <CardContainer style={styles.headerCard}>
-        <Header />
+      <CardContainer fullScreen style={styles.headerCard}>
+        <Header color="white" />
+        <HeaderTitle title={'Croatia'} />
       </CardContainer>
       <CardContainer style={styles.primaryCard}>
         <View style={styles.center}>
@@ -30,10 +31,13 @@ const styles = StyleSheet.create({
   },
   headerCard: {
     backgroundColor: Colors.primary,
-    marginBottom: (Sizes.height / 12) * -1,
+    marginBottom: Sizes.small
+      ? (Sizes.height / 5) * -1
+      : (Sizes.height / 4) * -1,
   },
   primaryCard: {
-    flex: 5,
+    flex: 2,
+    marginHorizontal: 0,
   },
   center: {
     flex: 1,

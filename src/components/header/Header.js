@@ -4,12 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 
 import HamburgerMenu from './HamburgerMenu';
 
-export default function Header() {
+export default function Header({ color }) {
   const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
-      <HamburgerMenu navigation={navigation} />
+      <HamburgerMenu navigation={navigation} color={color} />
     </View>
   );
 }
