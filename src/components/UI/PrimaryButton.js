@@ -6,11 +6,11 @@ import { Colors } from '../../constants';
 
 export default function PrimaryButton({ title, onPress }) {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.container}>
         <Text style={styles.text}>{title}</Text>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 }
 
