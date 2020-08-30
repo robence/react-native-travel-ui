@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Text,
   View,
   StyleSheet,
   ScrollView,
@@ -15,6 +14,7 @@ import {
   PrimaryButton,
   Dropdown,
   ColoredCard,
+  Spacer,
 } from '../../components/UI';
 import { Colors } from '../../constants';
 import { Budget, MidClass, Luxury } from '../../components/svg';
@@ -25,7 +25,7 @@ const currencies = [
   { title: 'Dollar (USD)' },
 ];
 
-export default function TripScreen({ navigation }) {
+export default function TripScreen() {
   const [travellers, setTravellers] = useState(2);
   const [nights, setNights] = useState(3);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
@@ -42,14 +42,14 @@ export default function TripScreen({ navigation }) {
       <CardContainer>
         <Header />
         <ScrollView style={styles.container}>
-          <View style={{ marginVertical: 10 }}>
+          <Spacer>
             <Dropdown
               label="Destination country"
               options={countries}
               value={selectedCountry}
               setValue={setSelectedCountry}
             />
-          </View>
+          </Spacer>
           <View style={styles.pickerContainer}>
             <NumberPicker
               label="Travellers"
@@ -58,14 +58,9 @@ export default function TripScreen({ navigation }) {
             />
             <NumberPicker label="Nights" value={nights} setValue={setNights} />
           </View>
-          <View style={{ marginVertical: 10 }}>
+          <Spacer>
             <Label>Travel style</Label>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-              }}
-            >
+            <View style={styles.inlineCards}>
               <ColoredCard
                 label="Budget"
                 color={Colors.red}
@@ -85,16 +80,18 @@ export default function TripScreen({ navigation }) {
                 Icon={Luxury}
               />
             </View>
-          </View>
-          <View style={{ marginBottom: 20 }}>
+          </Spacer>
+          <Spacer>
             <Dropdown
               label="Preferred currency"
               options={currencies}
               value={selectedCurrency}
               setValue={setSelectedCurrency}
             />
-          </View>
-          <PrimaryButton title="Calculate" onPress={onCalculate} />
+          </Spacer>
+          <Spacer>
+            <PrimaryButton title="Calculate" onPress={onCalculate} />
+          </Spacer>
         </ScrollView>
       </CardContainer>
     </KeyboardAvoidingView>
@@ -113,6 +110,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     paddingVertical: 10,
+    justifyContent: 'space-between',
+  },
+  inlineCards: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
   },
 });

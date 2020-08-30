@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
+import { Sizes } from '../../constants';
+
 export default function CardContainer({ children, style }) {
   return <View style={{ ...styles.card, ...style }}>{children}</View>;
 }
@@ -8,8 +10,7 @@ export default function CardContainer({ children, style }) {
 const styles = StyleSheet.create({
   card: {
     paddingTop: 20,
-    paddingBottom: 10,
-    paddingBottom: 10,
+    paddingBottom: Sizes.height / 20,
     marginBottom: 10,
     marginHorizontal: 5,
     marginTop: 5,
