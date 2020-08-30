@@ -1,11 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
-import { CardContainer } from '../../components/UI';
+import {
+  CardContainer,
+  Spacer,
+  Label,
+  PrimaryButton,
+} from '../../components/UI';
 import { Header, HeaderTitle } from '../../components/header';
 import { Colors, Sizes } from '../../constants';
+import { TripCost } from '../../components/TripOverview';
 
 export default function TripOverviewScreen() {
+  const onCalculateTrip = () => {};
+
   return (
     <KeyboardAvoidingView
       style={styles.keyboard}
@@ -17,9 +26,20 @@ export default function TripOverviewScreen() {
         <HeaderTitle title={'Croatia'} />
       </CardContainer>
       <CardContainer style={styles.primaryCard}>
-        <View style={styles.center}>
-          <Text>hello</Text>
-        </View>
+        <ScrollView style={styles.scroll}>
+          <Spacer>
+            <TripCost />
+          </Spacer>
+          <Spacer>
+            <Label>Cost details:</Label>
+          </Spacer>
+          <Spacer>
+            <PrimaryButton
+              title="Calculate a new trip"
+              onPress={onCalculateTrip}
+            />
+          </Spacer>
+        </ScrollView>
       </CardContainer>
     </KeyboardAvoidingView>
   );
@@ -28,6 +48,10 @@ export default function TripOverviewScreen() {
 const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
+  },
+  scroll: {
+    flex: 1,
+    paddingHorizontal: 20,
   },
   headerCard: {
     backgroundColor: Colors.primary,
@@ -38,10 +62,5 @@ const styles = StyleSheet.create({
   primaryCard: {
     flex: 2,
     marginHorizontal: 0,
-  },
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });

@@ -25,7 +25,7 @@ const defaultNavOptions = {
 function TripNavigator() {
   return (
     <Stack.Navigator
-      initialRouteName="TripScreen"
+      initialRouteName="TripOverviewScreen"
       screenOptions={defaultNavOptions}
       headerMode="none"
     >
