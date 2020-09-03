@@ -2,15 +2,11 @@ import React from 'react';
 import { StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import {
-  CardContainer,
-  Spacer,
-  Label,
-  PrimaryButton,
-} from '../../components/UI';
+import { CardContainer, Spacer, PrimaryButton } from '../../components/UI';
 import { Header, HeaderTitle } from '../../components/header';
 import { Colors, Sizes } from '../../constants';
 import { TripCost } from '../../components/TripOverview';
+import CostDetailList from '../../components/TripOverview/CostDetailList/CostDetailList';
 
 export default function TripOverviewScreen() {
   const onCalculateTrip = () => {};
@@ -31,7 +27,7 @@ export default function TripOverviewScreen() {
             <TripCost />
           </Spacer>
           <Spacer>
-            <Label>Cost details:</Label>
+            <CostDetailList />
           </Spacer>
           <Spacer>
             <PrimaryButton
