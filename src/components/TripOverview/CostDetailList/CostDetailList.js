@@ -4,7 +4,7 @@ import { View, StyleSheet } from 'react-native';
 import CostDetailCard from './CostDetailCard';
 import { Hotel, Transport, Food, Other } from '../../svg/TripOverView';
 import { Label } from '../../UI';
-import { Colors } from '../../../constants';
+import { Colors, Sizes } from '../../../constants';
 
 export default function CostDetailList() {
   return (
@@ -50,6 +50,6 @@ const styles = StyleSheet.create({
   inlineCards: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: Sizes.width / 30,
   },
 });

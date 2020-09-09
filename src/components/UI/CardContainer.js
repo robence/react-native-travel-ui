@@ -32,8 +32,8 @@ CardContainer.propTypes = {
 const styles = StyleSheet.create({
   card: {
     paddingTop: 20,
-    paddingBottom: Sizes.height / 20,
     marginBottom: 10,
+    paddingBottom: 10,
     marginHorizontal: 5,
     marginTop: 5,
     margin: 1,
