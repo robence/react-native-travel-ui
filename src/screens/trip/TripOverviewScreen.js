@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, KeyboardAvoidingView, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { CardContainer, Spacer, PrimaryButton } from '../../components/UI';
@@ -22,19 +22,24 @@ export default function TripOverviewScreen() {
         <HeaderTitle title={'Croatia'} />
       </CardContainer>
       <CardContainer style={styles.primaryCard}>
-        <ScrollView style={styles.scroll}>
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.scrollContainer}
+        >
           <Spacer>
             <TripCost />
           </Spacer>
           <Spacer>
             <CostDetailList />
           </Spacer>
-          <Spacer>
-            <PrimaryButton
-              title="Calculate a new trip"
-              onPress={onCalculateTrip}
-            />
-          </Spacer>
+          <View style={styles.bottom}>
+            <Spacer>
+              <PrimaryButton
+                title="Calculate a new trip"
+                onPress={onCalculateTrip}
+              />
+            </Spacer>
+          </View>
         </ScrollView>
       </CardContainer>
     </KeyboardAvoidingView>
@@ -48,6 +53,13 @@ const styles = StyleSheet.create({
   scroll: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+  scrollContainer: {
+    minHeight: '95%',
+    justifyContent: 'flex-start',
+  },
+  bottom: {
+    marginTop: 'auto',
   },
   headerCard: {
     backgroundColor: Colors.primary,

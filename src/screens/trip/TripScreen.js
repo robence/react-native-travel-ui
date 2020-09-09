@@ -40,7 +40,10 @@ export default function TripScreen({ navigation }) {
     >
       <CardContainer>
         <Header />
-        <ScrollView style={styles.container}>
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.scrollContainer}
+        >
           <Spacer>
             <Dropdown
               label="Destination country"
@@ -74,9 +77,11 @@ export default function TripScreen({ navigation }) {
               setValue={setSelectedCurrency}
             />
           </Spacer>
-          <Spacer>
-            <PrimaryButton title="Calculate" onPress={onCalculate} />
-          </Spacer>
+          <View style={styles.bottom}>
+            <Spacer>
+              <PrimaryButton title="Calculate" onPress={onCalculate} />
+            </Spacer>
+          </View>
         </ScrollView>
       </CardContainer>
     </KeyboardAvoidingView>
@@ -87,13 +92,20 @@ const styles = StyleSheet.create({
   keyboard: {
     flex: 1,
   },
-  container: {
+  scroll: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+  scrollContainer: {
+    minHeight: '90%',
+    justifyContent: 'flex-start',
   },
   pickerContainer: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
+  },
+  bottom: {
+    marginTop: 'auto',
   },
 });
