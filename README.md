@@ -16,3 +16,15 @@
 #### Trip Overview Screen
 
 <img src="screenshots/ScreenShot2.png" alt="Trip Overview Screen" height="768" />
+
+### Development
+
+#### Install dependencies
+```sh
+yarn install
+```
+
+#### Start development
+```sh
+yarn start
+```
