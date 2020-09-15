@@ -2,16 +2,12 @@
 
 **React Native implementation of Daily UI #4**
 
-#### Design
+#### Design by @lucarozsa
 
-<img src="screenshots/Daily_UI_4.png" />
+<img src="screenshots/Daily_UI_4.png" alt="Design screen"
+	title="A travel calculator"   />
 
 #### Screenshots
 
-##### Trip Screen
-
-<img src="screenshots/ScreenShot1.png" />
-
-##### Trip Overview Screen
-
-<img src="screenshots/ScreenShot2.png" />
+<img src="screenshots/ScreenShot1.png" alt="Trip Screen" height="768" />
+<img src="screenshots/ScreenShot2.png" alt="Trip Overview Screen" height="768" />
