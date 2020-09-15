@@ -4,7 +4,7 @@
 
 #### Design
 
-<img src="screenshots/Daily_UI_#4.png" />
+<img src="screenshots/Daily_UI_4.png" />
 
 #### Screenshots
 
@@ -12,9 +12,6 @@
 
 <img src="screenshots/ScreenShot1.png" />
 
-
-
 ##### Trip Overview Screen
 
 <img src="screenshots/ScreenShot2.png" />
-
