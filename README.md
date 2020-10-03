@@ -3,7 +3,7 @@
 **React Native implementation of Daily UI #4**
 
 ### Design by  [@lucarozsa](https://dribbble.com/lucarozsa)
-#### [Link here](https://dribbble.com/shots/14239190-Daily-UI-004-Travel-Cost-Calculator)
+#### [Dribble link](https://dribbble.com/shots/14239190-Daily-UI-004-Travel-Cost-Calculator)
 
 <img src="screenshots/Daily_UI_4.png" alt="Design screen"
 	title="A travel calculator"   />
