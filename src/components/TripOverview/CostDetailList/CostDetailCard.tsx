@@ -1,16 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 
 import { Sizes } from '../../../constants';
 
-export default function CostDetailCard({
-  color,
-  backgroundColor,
-  label,
-  text,
-  Icon,
-}) {
+type CostDetailCardProps = {
+  color: string;
+  backgroundColor: string;
+  label: string;
+  text: string;
+  Icon: React.ElementType;
+};
+
+export default function CostDetailCard(props: CostDetailCardProps) {
+  const { color, backgroundColor, label, text, Icon } = props;
+
   return (
     <View style={[styles.container, { backgroundColor }]}>
       <View style={styles.center}>
@@ -29,13 +32,6 @@ export default function CostDetailCard({
     </View>
   );
 }
-
-CostDetailCard.propTypes = {
-  color: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  Icon: PropTypes.func.isRequired,
-};
 
 const styles = StyleSheet.create({
   container: {

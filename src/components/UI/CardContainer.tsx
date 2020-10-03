@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 
-import { Sizes } from '../../constants';
+type CardContainerProps = {
+  fullScreen?: boolean;
+  style?: ViewStyle;
+  children: React.ReactNode;
+};
 
-export default function CardContainer({ children, style, fullScreen = false }) {
+export default function CardContainer(props: CardContainerProps) {
+  const { children, style, fullScreen = false } = props;
+
   const fullScreenStyle = fullScreen
     ? {
         marginTop: 0,
@@ -20,14 +25,6 @@ export default function CardContainer({ children, style, fullScreen = false }) {
     </View>
   );
 }
-
-CardContainer.defaultProps = {
-  fullScreen: false,
-};
-
-CardContainer.propTypes = {
-  fullScreen: PropTypes.bool,
-};
 
 const styles = StyleSheet.create({
   card: {

@@ -1,0 +1,49 @@
+version: 2.1
+
+publish: &publish
+  working_directory: ~/travel-ui
+  docker:
+    - image: cimg/node:12.18
+  steps:
+    - checkout
+    - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+    - run:
+        name: Yarn install
+        command: yarn
+    - save_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+        paths:
+          - ./node_modules
+    - run:
+        name: Install Expo CLI
+        command: yarn global add expo-cli
+    - run:
+        name: Login into Expo
+        command: yarn expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD --non-interactive
+    - run:
+        name: Publish to Expo
+        command: |
+          yarn expo publish --non-interactive --max-workers 1 --release-channel $EXPO_RELEASE_CHANNEL
+jobs:
+  publish_to_expo_staging:
+    environment:
+      EXPO_RELEASE_CHANNEL: staging
+    <<: *publish
+
+  publish_to_expo_default:
+    environment:
+      EXPO_RELEASE_CHANNEL: default
+    <<: *publish
+
+workflows:
+  travel-ui:
+    jobs:
+      - publish_to_expo_staging:
+          filters:
+            branches:
+              only: develop
+      - publish_to_expo_default:
+          filters:
+            branches:
+              only: main

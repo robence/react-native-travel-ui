@@ -1,14 +1,12 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 
-export default function HeaderTitle({ title }) {
+type HeaderTitleProps = {
+  title: string;
+};
+export default function HeaderTitle({ title }: HeaderTitleProps) {
   return <Text style={styles.title}>{title}</Text>;
 }
-
-HeaderTitle.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 const styles = StyleSheet.create({
   title: {
