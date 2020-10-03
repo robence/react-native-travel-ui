@@ -71,7 +71,7 @@ export default function TripScreen({ navigation }) {
           </Spacer>
           <Spacer>
             <Dropdown
-              label="Preferred currency"
+              label="Preferred currencyy"
               options={currencies}
               value={selectedCurrency}
               setValue={setSelectedCurrency}
