@@ -1,9 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function ColoredCard({ color, backgroundColor, label, Icon }) {
+type ColoredCardProps = {
+  color: string;
+  backgroundColor: string;
+  label: string;
+  Icon: React.ElementType;
+};
+
+export default function ColoredCard(props: ColoredCardProps) {
+  const { color, backgroundColor, label, Icon } = props;
+
   return (
     <View style={[styles.center, { backgroundColor }]}>
       <TouchableOpacity style={styles.touachable} onPress={() => {}}>
@@ -17,13 +25,6 @@ export default function ColoredCard({ color, backgroundColor, label, Icon }) {
     </View>
   );
 }
-
-ColoredCard.propTypes = {
-  color: PropTypes.string.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  Icon: PropTypes.func.isRequired,
-};
 
 const styles = StyleSheet.create({
   center: {

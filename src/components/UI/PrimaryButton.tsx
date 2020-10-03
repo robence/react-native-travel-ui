@@ -1,10 +1,16 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
 
 import { Colors } from '../../constants';
 
-export default function PrimaryButton({ title, onPress }) {
+type PrimaryButtonProps = {
+  title: string;
+  onPress: () => void;
+};
+
+export default function PrimaryButton(props: PrimaryButtonProps) {
+  const { title, onPress } = props;
+
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
@@ -32,8 +38,3 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
 });
-
-PrimaryButton.propTypes = {
-  title: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
-};
