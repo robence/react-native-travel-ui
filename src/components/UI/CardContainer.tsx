@@ -2,8 +2,6 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-import { Sizes } from '../../constants';
-
 export default function CardContainer({ children, style, fullScreen = false }) {
   const fullScreenStyle = fullScreen
     ? {
