@@ -3,8 +3,16 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from './HeaderButton';
 import { Colors } from '../../constants';
+import { HeaderNavigationProp } from '../../navigation/TravelNavigator';
 
-export default function HamburgerMenu({ navigation, color = Colors.primary }) {
+type HamburgerMenuProps = {
+  navigation: HeaderNavigationProp;
+  color?: string;
+};
+
+export default function HamburgerMenu(props: HamburgerMenuProps) {
+  const { navigation, color = Colors.primary } = props;
+
   return (
     <HeaderButtons HeaderButtonComponent={HeaderButton}>
       <Item

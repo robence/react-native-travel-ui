@@ -1,11 +1,18 @@
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Colors, Sizes } from '../../constants';
 import Label from './Label';
 
-export default function NumberPicker({ label, value, setValue }) {
+type NumberPickerProps = {
+  label: string;
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export default function NumberPicker(props: NumberPickerProps) {
+  const { label, value, setValue } = props;
+
   const increment = () => setValue((currValue) => currValue + 1);
   const decrement = () => setValue((currValue) => currValue - 1);
 
@@ -38,12 +45,6 @@ export default function NumberPicker({ label, value, setValue }) {
     </View>
   );
 }
-
-NumberPicker.propTypes = {
-  label: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
-  setValue: PropTypes.func.isRequired,
-};
 
 const styles = StyleSheet.create({
   inline: {

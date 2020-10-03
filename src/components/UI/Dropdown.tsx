@@ -6,7 +6,9 @@ import { Ionicons } from '@expo/vector-icons';
 import Label from './Label';
 import { Colors, Sizes } from '../../constants';
 
-export default function Dropdown({ label, options, value, setValue }) {
+export default function Dropdown(props: any) {
+  const { label, options, value, setValue } = props;
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -26,8 +28,8 @@ export default function Dropdown({ label, options, value, setValue }) {
           setIsOpen(false);
         }}
       >
-        <Picker.Item label="Options" />
-        {options.map((item) => (
+        <Picker.Item label="Options" value={-1} />
+        {options.map((item: any) => (
           <Picker.Item key={item.title} label={item.title} value={item} />
         ))}
       </Picker>

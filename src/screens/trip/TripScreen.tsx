@@ -1,3 +1,4 @@
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import {
   View,
@@ -15,6 +16,7 @@ import {
   Dropdown,
   Spacer,
 } from '../../components/UI';
+import { RootStackParamList } from '../../navigation/TravelNavigator';
 
 const countries = [{ title: 'Croatia' }, { title: 'Unites States' }];
 const currencies = [
@@ -22,7 +24,16 @@ const currencies = [
   { title: 'Dollar (USD)' },
 ];
 
-export default function TripScreen({ navigation }) {
+type TripScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'TripScreen'
+>;
+
+type TripScreenProps = {
+  navigation: TripScreenNavigationProp;
+};
+
+export default function TripScreen({ navigation }: TripScreenProps) {
   const [travellers, setTravellers] = useState(2);
   const [nights, setNights] = useState(3);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);

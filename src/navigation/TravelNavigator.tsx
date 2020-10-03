@@ -1,13 +1,34 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from '@react-navigation/stack';
+import {
+  createDrawerNavigator,
+  DrawerNavigationProp,
+} from '@react-navigation/drawer';
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import { TripScreen, TripOverviewScreen } from '../screens/trip';
+import { CompositeNavigationProp } from '@react-navigation/native';
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  TripScreen: undefined;
+  TripOverviewScreen: undefined;
+};
+
+export type RootDrawerParamList = {
+  Trip: undefined;
+};
+
+export type HeaderNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList>,
+  DrawerNavigationProp<RootDrawerParamList>
+>;
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 const defaultNavOptions = {
   headerStyle: {
@@ -35,9 +56,9 @@ function TripNavigator() {
   );
 }
 
-const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
-const MyDrawerIcon = (iconName) => (drawerConfig) => (
+const MyDrawerIcon = (iconName: string) => (drawerConfig: any) => (
   <Ionicons
     name={Platform.OS === 'android' ? `md-${iconName}` : `ios-${iconName}`}
     size={23}

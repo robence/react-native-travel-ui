@@ -1,7 +1,13 @@
 import { View, StyleSheet, Text } from 'react-native';
 import React from 'react';
 
-export default function Label({ children }) {
+type LabelProps = {
+  children: React.ReactNode;
+};
+
+export default function Label(props: LabelProps) {
+  const { children } = props;
+
   return (
     <View style={styles.label}>
       <Text style={styles.text}>{children}</Text>

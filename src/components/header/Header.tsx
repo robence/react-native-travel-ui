@@ -3,9 +3,14 @@ import { View, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import HamburgerMenu from './HamburgerMenu';
+import { HeaderNavigationProp } from '../../navigation/TravelNavigator';
 
-export default function Header({ color }) {
-  const navigation = useNavigation();
+type HeaderProps = {
+  color?: string;
+};
+
+export default function Header({ color }: HeaderProps) {
+  const navigation = useNavigation<HeaderNavigationProp>();
 
   return (
     <View style={styles.container}>

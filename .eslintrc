@@ -1,25 +1,3 @@
 {
-  "extends": ["@react-native-community"],
-  "parser": "babel-eslint",
-  "plugins": ["import"],
-  "rules": {
-    "react/jsx-filename-extension": [
-      "error",
-      { "extensions": [".js", ".jsx"] }
-    ],
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "internal"],
-        "newlines-between": "always"
-      }
-    ]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".json", ".native.js"]
-      }
-    }
-  }
+  "extends": "@react-native-community"
 }
