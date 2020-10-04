@@ -6,14 +6,15 @@ import { Colors } from '../../constants';
 type PrimaryButtonProps = {
   title: string;
   onPress: () => void;
+  disabled?: boolean;
 };
 
 export default function PrimaryButton(props: PrimaryButtonProps) {
-  const { title, onPress } = props;
+  const { title, onPress, disabled } = props;
 
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.container}>
+    <TouchableOpacity onPress={onPress} disabled={disabled}>
+      <View style={[styles.container, disabled ? styles.disabled : {}]}>
         <Text style={styles.text}>{title}</Text>
       </View>
     </TouchableOpacity>
@@ -28,6 +29,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  disabled: {
+    opacity: 0.5,
   },
   text: {
     textAlign: 'center',

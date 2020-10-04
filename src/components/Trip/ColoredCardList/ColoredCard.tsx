@@ -1,33 +1,52 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  GestureResponderEvent,
+} from 'react-native';
 
-type ColoredCardProps = {
+type OptionProps = {
   color: string;
   backgroundColor: string;
-  label: string;
   Icon: React.ElementType;
 };
 
+type ColoredCardProps = {
+  label: string;
+  options: OptionProps;
+  selected: boolean;
+  setSelected: (event: GestureResponderEvent) => void;
+};
+
 export default function ColoredCard(props: ColoredCardProps) {
-  const { color, backgroundColor, label, Icon } = props;
+  const { label, options, selected, setSelected } = props;
+  const { color, backgroundColor, Icon } = options;
 
   return (
-    <View style={[styles.center, { backgroundColor }]}>
-      <TouchableOpacity style={styles.touachable} onPress={() => {}}>
+    <Pressable
+      style={[
+        { backgroundColor },
+        selected ? { borderWidth: 2, borderColor: color } : {},
+        styles.card,
+      ]}
+      onPress={setSelected}
+    >
+      <View style={styles.align}>
         <View style={styles.img}>
           <Icon />
         </View>
         <View>
           <Text style={[styles.text, { color: color }]}>{label}</Text>
         </View>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  center: {
+  card: {
     height: 100,
     alignItems: 'center',
     justifyContent: 'center',
@@ -36,7 +55,7 @@ const styles = StyleSheet.create({
     maxWidth: '30%',
     borderRadius: 16,
   },
-  touachable: {
+  align: {
     alignItems: 'center',
   },
   img: {

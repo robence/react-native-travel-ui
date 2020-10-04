@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { Header } from '../../components/header';
+import { SelectHandler } from '../../components/headless';
 import { ColoredCardList } from '../../components/Trip';
 import {
   CardContainer,
@@ -78,7 +79,14 @@ export default function TripScreen({ navigation }: TripScreenProps) {
             </View>
           </Spacer>
           <Spacer>
-            <ColoredCardList />
+            <SelectHandler>
+              {({ selected, setSelected }) => (
+                <ColoredCardList
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+              )}
+            </SelectHandler>
           </Spacer>
           <Spacer>
             <Dropdown
