@@ -28,14 +28,14 @@ const NumberOperand = (props: NumberOperandProps) => {
 type NumberPickerProps = {
   label: string;
   value: number;
-  setValue: React.Dispatch<React.SetStateAction<number>>;
+  setValue: (value: number) => void;
 };
 
 export default function NumberPicker(props: NumberPickerProps) {
   const { label, value, setValue } = props;
 
-  const increment = () => setValue((currValue) => currValue + 1);
-  const decrement = () => setValue((currValue) => currValue - 1);
+  const increment = () => setValue(value + 1);
+  const decrement = () => setValue(value - 1);
 
   return (
     <View>

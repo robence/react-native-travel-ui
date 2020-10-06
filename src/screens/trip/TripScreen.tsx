@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import {
@@ -6,6 +7,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
 } from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
 
 import { Header } from '../../components/header';
 import { SelectHandler } from '../../components/headless';
@@ -25,6 +27,11 @@ const currencies = [
   { title: 'Dollar (USD)' },
 ];
 
+type FormData = {
+  travellers: number;
+  nights: number;
+};
+
 type TripScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'TripScreen'
@@ -35,14 +42,15 @@ type TripScreenProps = {
 };
 
 export default function TripScreen({ navigation }: TripScreenProps) {
-  const [travellers, setTravellers] = useState(2);
-  const [nights, setNights] = useState(3);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [selectedCurrency, setSelectedCurrency] = useState(currencies[0]);
 
-  const onCalculate = () => {
+  const onCalculate = (data: FormData) => {
+    console.log(data);
     navigation.navigate('TripOverviewScreen');
   };
+
+  const { control, handleSubmit } = useForm<FormData>();
 
   return (
     <KeyboardAvoidingView
@@ -66,15 +74,30 @@ export default function TripScreen({ navigation }: TripScreenProps) {
           </Spacer>
           <Spacer>
             <View style={styles.pickerContainer}>
-              <NumberPicker
-                label="Travellers"
-                value={travellers}
-                setValue={setTravellers}
+              <Controller
+                control={control}
+                render={({ onChange, value }) => (
+                  <NumberPicker
+                    label="Travellers"
+                    value={value}
+                    setValue={(value) => onChange(value)}
+                  />
+                )}
+                name="travellers"
+                defaultValue={2}
               />
-              <NumberPicker
-                label="Nights"
-                value={nights}
-                setValue={setNights}
+
+              <Controller
+                control={control}
+                render={({ onChange, value }) => (
+                  <NumberPicker
+                    label="Nights"
+                    value={value}
+                    setValue={(value) => onChange(value)}
+                  />
+                )}
+                name="nights"
+                defaultValue={3}
               />
             </View>
           </Spacer>
@@ -98,7 +121,10 @@ export default function TripScreen({ navigation }: TripScreenProps) {
           </Spacer>
           <View style={styles.bottom}>
             <Spacer>
-              <PrimaryButton title="Calculate" onPress={onCalculate} />
+              <PrimaryButton
+                title="Calculate"
+                onPress={handleSubmit(onCalculate)}
+              />
             </Spacer>
           </View>
         </ScrollView>

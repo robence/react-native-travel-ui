@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Pressable } from 'react-native';
 
 import { Colors } from '../../constants';
 
@@ -13,11 +13,11 @@ export default function PrimaryButton(props: PrimaryButtonProps) {
   const { title, onPress, disabled } = props;
 
   return (
-    <TouchableOpacity onPress={onPress} disabled={disabled}>
+    <Pressable onPress={onPress} disabled={disabled}>
       <View style={[styles.container, disabled ? styles.disabled : {}]}>
         <Text style={styles.text}>{title}</Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 
